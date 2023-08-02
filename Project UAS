@@ -1,0 +1,130 @@
+@echo off
+:login
+cls
+echo ===================================
+echo   SELAMAT DATANG DI PROGRAM SAYA
+echo MASUKKAN USERNMAE DAN PASSWORD ANDA
+echo ===================================
+set /p user=USERNAME  :
+set /p passw=PASSWORD  :
+echo ==============================
+
+if %passw%==uniss123 (
+        goto menu
+) else (
+        echo PASSWORD SALAH SILAHKAN INPUT ULANG!!
+        pause 
+        goto login
+)
+
+:menu
+cls
+echo ============+++++============
+echo Halo Selamat Datang %user% 
+echo Pilihan Menu       :
+echo [1.] Aplikasi
+echo [2.] Kalkulator 
+echo [3.] Settings
+echo [4.] EXIT
+echo ============+++++============
+set /p pilih=Masukkan Angka untuk memilih menu  :
+if %pilih%==1 goto apk
+if %pilih%==2 goto kkl
+if %pilih%==3 goto sett 
+if %pilih%==4 goto ex
+else (
+        cls
+        echo Angka yang anda masukkan tidak ada silahkan ulangi kembali!
+        pause 
+        goto menu   
+)
+
+:apk
+cls
+echo ==============================
+echo         MENU APLIKASI
+echo ==============================
+echo [1] NOTEPAD
+echo [2] PAINT
+echo [0] Kembali ke Menu
+echo ==============================
+set /p pilih=Masukkan Angka untuk memilih menu  :
+if %pilih%==1 (
+        start notepad.exe
+) 
+if %pilih%==2 (
+        start mspaint.exe
+)
+if %pilih%==0 goto menu 
+else (
+        cls
+        echo Angka yang anda masukkan tidak ada silahkan ulangi kembali!
+        pause 
+        goto apk   
+)
+
+:kkl
+cls
+echo ==============================
+echo         MENU KALKULATOR
+echo ==============================
+set /p x=ANGKA PERTAMA  : 
+set /p n=(-,+,/,*)      :
+set /p y=ANGKA KEDUA    : 
+set /a xy= %x%%n%%y%
+echo -------------
+echo %x%%n%%y%=%xy%
+echo -------------
+echo -------------
+echo [1] kembali menggunakan kalkulator
+echo [0] kembali ke menu 
+echo -------------
+set /p hu= Masukkan Angka untuk memilih menu  :
+if %hu%==1 goto kkl
+if %hu%==0 goto menu
+else (
+        cls
+        echo Angka yang anda masukkan tidak ada silahkan ulangi kembali!
+        pause 
+        goto apk   
+)
+:sett
+cls
+cls
+echo ==============================
+echo         MENU SETTINGS
+echo ==============================
+echo [1] SETTING SOUND
+echo [2] SETTING DISPLAY
+echo [0] Kembali ke Menu
+echo ==============================
+set /p pilih=Masukkan Angka untuk memilih menu  :
+if %pilih%==1 (
+        start ms-settings:sound
+) 
+if %pilih%==2 (
+        start ms-settings:display
+)
+if %pilih%==0 goto menu 
+else (
+        cls
+        echo Angka yang anda masukkan tidak ada silahkan ulangi kembali!
+        pause 
+        goto apk   
+)
+
+:ex 
+cls
+echo ANDA YAKIN INGIN KELUAR PROGRAM?
+set /p m=INPUT ANGKA Y/N
+if %m%==Y goto h 
+if %m%==y goto h 
+if %m%==N goto menu 
+if %m%==n goto menu
+else (
+        cls
+        echo ULANG KEMBALI!!!
+        pause 
+        goto ex   
+)
+:h
